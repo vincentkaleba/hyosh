@@ -55,5 +55,5 @@ async def add_channel(bot : Client ,message : Message):
 
         except Exception as e:
                 LOGGER.error(e)
-                await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
+                await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
                 await bot.send_message(message.message.chat.id,"<b>❌ Invalid action</b>",reply_markup=empty_markup())

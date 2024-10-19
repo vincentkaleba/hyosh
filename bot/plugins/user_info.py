@@ -12,7 +12,7 @@ async def my_channel_handler(bot : Client,message : Message):
     line='_________________________________________________________'
     data=" "
     if not is_user_not_added_channel(message.message.chat.id):
-        await bot.send_message(message.message.chat.id,"⚠️ **You haven't registered any channel with our bot yet Or Channels might have been removed or banned**",parse_mode='md',reply_markup=start_markup())
+        await bot.send_message(message.message.chat.id,"⚠️ **You haven't registered any channel with our bot yet Or Channels might have been removed or banned**",reply_markup=start_markup())
     else:
         channels=session.query(Channel).filter(Channel.chat_id==message.message.chat.id).all()
         total=session.query(Channel).filter(Channel.chat_id==message.message.chat.id)

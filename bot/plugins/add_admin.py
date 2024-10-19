@@ -19,6 +19,6 @@ async def add_admin_handler(bot:Client,message:Message):
             await bot.send_message(message.from_user.id,"Admin Added Sucessfully",reply_markup=empty_markup())
     except Exception as e:
             LOGGER.error(e)
-            await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
+            await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
             await bot.send_message(message.from_user.id,'Aww :( , Something went wrong',reply_markup=empty_markup())
     
