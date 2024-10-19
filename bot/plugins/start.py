@@ -8,7 +8,7 @@ from bot.database.model.user_db import add_user,get_admin
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def start_handler(bot : Client, message: Message):
-    await bot.send_message(message.chat.id,"Hello **{}**".format(message.chat.first_name),parse_mode='md',reply_markup=start_markup())
+    await bot.send_message(message.chat.id,"Hello **{}**".format(message.chat.first_name),reply_markup=start_markup())
     add_user(message)
     
 @Bot.on_message(filters.command('admin_start') & filters.private & filters.user(get_admin()))

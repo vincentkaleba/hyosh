@@ -22,7 +22,7 @@ async def mail_handler(bot: Client,message: Message):
                 LOGGER.error(e)
                 LOGGER.error(f"Mail not sent to {user}")
                 await bot.send_message(message.from_user.id.id,'Aww :( , Something went wrong',reply_markup=admin_markup())
-                await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
+                await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
                 
         await bot.send_message(message.from_user.id,'☑️Mailing finished!',reply_markup=admin_markup())
         LOGGER.info('Mailing finished!')

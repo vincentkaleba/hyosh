@@ -5,7 +5,7 @@ import logging
 LOCK = threading.RLock()
 LOGGER = logging.getLogger(__name__)
 
-conn = sqlite3.connect('database/database.db', check_same_thread=False)
+conn = sqlite3.connect('../database.db', check_same_thread=False)
 cursor = conn.cursor()
 
 cursor.execute('''

@@ -28,11 +28,11 @@ async def preview_classic_promo_handler(bot:Client,message:Message):
                     ch=get_channel_by_id(j)
                     val+=f'{b.emoji}<a href="{ch.invite_link}">{str(ch.channel_name)}</a>\n'
                     dest=b.set_top+"\n\n"+val+"\n"+p+'\n'+b.set_bottom
-                await bot.send_message(message.message.chat.id,dest,reply_markup=promo_button_markup(),disable_web_page_preview=True,parse_mode='HTML')
+                await bot.send_message(message.message.chat.id,dest,reply_markup=promo_button_markup(),disable_web_page_preview=True)
     except Exception as e:
             LOGGER.error(e)
-            await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
-            await bot.send_message(message.message.chat.id,"**⚠️ Something went wrong**",parse_mode='markdown')
+            await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
+            await bot.send_message(message.message.chat.id,"**⚠️ Something went wrong**")
             
 @Bot.on_callback_query(filters.regex('^preview_morden_promo$')& (filters.user(get_admin()) | filters.user(SUDO_USERS)))
 async def preview_morden_promo_handler(bot:Client,message:Message):
@@ -43,11 +43,11 @@ async def preview_morden_promo_handler(bot:Client,message:Message):
                         ch=get_channel_by_id(j)
                         val+=f'<b>{str(ch.description)}</b>\n{b.emoji}<a href="{ch.invite_link}">「Joιɴ Uѕ」</a>{b.emoji}\n\n'
                         dest=b.set_top+"\n"+val+"\n"+p+b.set_bottom
-                await bot.send_message(message.message.chat.id,dest,reply_markup=promo_button_markup(),parse_mode='HTML',disable_web_page_preview=True)
+                await bot.send_message(message.message.chat.id,dest,reply_markup=promo_button_markup(),disable_web_page_preview=True)
     except Exception as e:
             LOGGER.error(e)
-            await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
-            await bot.send_message(message.message.chat.id,"**⚠️ Something went wrong**",parse_mode='markdown')
+            await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
+            await bot.send_message(message.message.chat.id,"**⚠️ Something went wrong**")
             
 @Bot.on_callback_query(filters.regex('^preview_desc_promo$')& (filters.user(get_admin()) | filters.user(SUDO_USERS)))
 async def preview_desc_promo_handler(bot:Client,message:Message):
@@ -58,11 +58,11 @@ async def preview_desc_promo_handler(bot:Client,message:Message):
                         ch=get_channel_by_id(j)
                         val+=f'\n<a href="{ch.invite_link}"><b>{str(ch.description)}</b></a>\n<b>––––––––––––––––––</b>\n\n'
                         dest=b.set_top+"\n"+val+"\n"+p+b.set_bottom
-                await bot.send_message(message.message.chat.id,dest,reply_markup=promo_button_markup(),parse_mode='HTML',disable_web_page_preview=True)
+                await bot.send_message(message.message.chat.id,dest,reply_markup=promo_button_markup(),disable_web_page_preview=True)
     except Exception as e:
         LOGGER.error(e)
-        await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
-        await bot.send_message(message.message.chat.id,"**⚠️ Something went wrong**",parse_mode='markdown')
+        await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
+        await bot.send_message(message.message.chat.id,"**⚠️ Something went wrong**")
             
 @Bot.on_callback_query(filters.regex('^preview_button_promo$')& (filters.user(get_admin()) | filters.user(SUDO_USERS)))
 async def preview_button_promo_handler(bot:Client,message:Message):     
@@ -79,5 +79,5 @@ async def preview_button_promo_handler(bot:Client,message:Message):
                                     reply_markup=markup) 
         except Exception as e:
             LOGGER.error(e)
-            await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
-            await bot.send_message(message.message.chat.id,"**⚠️ Something went wrong**",parse_mode='markdown')
+            await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
+            await bot.send_message(message.message.chat.id,"**⚠️ Something went wrong**")

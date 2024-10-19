@@ -36,7 +36,7 @@ async def ban_channel_handler(bot:Client,message:Message):
                 await bot.send_message(message.message.chat.id,"Channel banned",reply_markup=empty_markup())
     except Exception as e:
         LOGGER.error(e)
-        await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
+        await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
         await bot.send_message(message.from_user.id,"Something went worng",reply_markup=empty_markup())
                     
                  
@@ -55,7 +55,7 @@ async def unban_channel_handler(bot:Client,message:Message):
                     await bot.send_message(message.message.chat.id,"Channel unbanned",reply_markup=empty_markup())
     except Exception as e:
         LOGGER.error(e)
-        await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
+        await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
         await bot.send_message(message.from_user.id,"Something went worng",reply_markup=empty_markup())
                     
                     
@@ -70,7 +70,7 @@ async def update_subs_handler(bot:Client,message:Message):
             update_subs(channel.channel_id,subs)
         except (ChannelPrivate,ChatAdminRequired)  as e:
                     LOGGER.error(e)
-                    await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
+                    await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
                     error_list+=f"🆔 Channel ID : {channel}\n ❓ {e}"
                 
     await bot.send_message(message.message.chat.id,f"<b>Error List</b>\n\n{error_list}",)
@@ -96,5 +96,5 @@ async def show_channel_handler(bot:Client,message:Message):
             await bot.send_message(message.from_user.id,data)
     except Exception as e:
         LOGGER.error(e)
-        await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
+        await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
         await bot.send_message(message.from_user.id,"Something went worng",reply_markup=empty_markup())

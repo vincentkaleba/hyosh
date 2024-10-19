@@ -20,7 +20,7 @@ async def paid_promo_handler(bot:Client,message:Message):
         if msg.media is True:
             m=await bot.send_photo(SUPPORT_CHANNEL,msg.photo.file_id,caption=msg.caption,parse_mode='HTML',reply_markup=promo_button_markup())
         else:
-            m=await bot.send_message(SUPPORT_CHANNEL,msg.text,reply_markup=promo_button_markup(),parse_mode='HTML')
+            m=await bot.send_message(SUPPORT_CHANNEL,msg.text,reply_markup=promo_button_markup())
         chname=get_channel()
         for x in chname:                    
             try:
@@ -30,7 +30,7 @@ async def paid_promo_handler(bot:Client,message:Message):
                 await bot.send_message(x.chat_id,f"Failed to send message for {x.channel_name}\nRepost the promo to avoid ban")
                 error_list+=f"🆔 ID : {x.channel_id}\n📛 Name : {x.channel_name}\n👨‍ Admin : @{x.admin_username} \n🔗Link : {x.invite_link}\n➖➖➖➖➖➖➖➖➖➖➖➖➖➖"
             except Exception as e:
-                await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
+                await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
                 LOGGER.error(e)
         
         await bot.send_message(message.message.chat.id,f"DONE",reply_markup=empty_markup())
@@ -49,7 +49,7 @@ async def delete_paid_promo_handler(bot:Client,message:Message):
                     x=get_channel_by_id(i.channel)
                     error_list+=f"🆔 ID : {x.channel_id}\n📛 Name : {x.channel_name}\n👨‍ Admin : @{x.admin_username} \n🔗Link : {x.invite_link}\n➖➖➖➖➖➖➖➖➖➖➖➖➖➖"
             except Exception as e:
-                await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
+                await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC')
                 LOGGER.error(e)
     delete_paid_promo()
     await bot.send_message(message.message.chat.id,"✅ DONE")

@@ -18,5 +18,5 @@ async def my_channel_handler(bot : Client,message : Message):
         total=session.query(Channel).filter(Channel.chat_id==message.message.chat.id)
         for channel in channels:
                 data+=line+'\nChannel Id :'+ str(channel.channel_id)+'\nChannel Name :'+channel.channel_name+'\nSubscribers :' +str(channel.subscribers)+'\n\n' 
-        await bot.send_message(message.message.chat.id,f'**Total Channels :{total.count()}**\n\n{data}',parse_mode='md',reply_markup=channel_markup())
+        await bot.send_message(message.message.chat.id,f'**Total Channels :{total.count()}**\n\n{data}',reply_markup=channel_markup())
     
