@@ -3,7 +3,7 @@ from pyrogram.types import Message
 import traceback,time
 from bot import LOGGER,LOG_CHANNEL,SUDO_USERS,SUPPORT_GROUP
 from bot.bot import Bot
-from bot.database.models.channel_db import is_channel_ban,is_channel_exist,channel_data
+from bot.database.model.channel_db import is_channel_ban,is_channel_exist,channel_data
 from bot.utils.markup import start_markup,back_markup,empty_markup
 from bot.utils.is_admin import is_bot_admin
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired,ChannelPrivate
